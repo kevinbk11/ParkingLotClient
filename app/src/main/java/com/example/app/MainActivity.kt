@@ -16,8 +16,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        textView1.text="請在下方輸入您的車牌(ex:AJV1688)"
         SocketClient.start()
+        btm1.visibility=View.GONE
+        while(true)
+        {
+            if(SocketClient.Connecting)
+            {
+
+            }
+        }
     }
 
     fun click(view: View)

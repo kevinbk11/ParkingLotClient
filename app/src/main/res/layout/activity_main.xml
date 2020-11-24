@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
     <Button
-            android:text="Button"
+            android:text="取車"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/btm1"
             app:layout_constraintStart_toStartOf="parent"
@@ -16,12 +16,13 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.71"
             android:onClick="click"/>
     <TextView
-            android:text="TextView"
+            android:text="請在下方輸入您的車牌(ex:AJV1688)"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textView1"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.351"/>
+            app:layout_constraintVertical_bias="0.443" android:textSize="20sp"
+            app:layout_constraintHorizontal_bias="0.407"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,4 +32,12 @@
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintVertical_bias="0.593"/>
+    <TextView
+            android:text="客服電話:0976638929"
+            android:layout_width="247dp"
+            android:layout_height="66dp" android:id="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.003"
+            android:textSize="24sp" app:layout_constraintHorizontal_bias="1.0"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
