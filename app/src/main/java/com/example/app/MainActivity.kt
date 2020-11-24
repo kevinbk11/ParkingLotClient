@@ -52,7 +52,6 @@ class SocketThread():Thread()
             val s= Socket("192.168.43.201",5005)
             val output=s.getOutputStream()
             writer= PrintWriter(output,true)
-            Notfail=true
         }
         catch(e:Exception)
         {
@@ -62,7 +61,6 @@ class SocketThread():Thread()
         {
             Connecting=false
         }
-
     }
 
     fun sendCar(car:String)
