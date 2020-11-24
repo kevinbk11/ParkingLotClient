@@ -3,6 +3,7 @@ package com.example.app
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
@@ -18,32 +19,40 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         SocketClient.start()
         btm1.visibility=View.GONE
-        while(true)
-        {
-            if(SocketClient.Connecting)
+        Thread{
+                while(true)
+                {
+                    Thread.sleep(1000)
+                    if(!SocketClient.Connecting)
+                    {
+                        break
+                    }
+                }
+            if(SocketClient.Notfail)
             {
+                runOnUiThread {
+                    btm1.visibility=View.VISIBLE
+                    Toast.makeText(applicationContext,"連線成功",Toast.LENGTH_LONG).show()
+                }
 
             }
-        }
+            else
+            {
+                runOnUiThread{Toast.makeText(applicationContext,"連線失敗! 有可能是伺服器未開啟或者網路不穩,請重新嘗試!",Toast.LENGTH_LONG).show()}
+            }
+        }.start()
     }
 
     fun click(view: View)
     {
-        if(SocketClient.Connecting)
-        {
-            Toast.makeText(applicationContext,"尚未連線",Toast.LENGTH_LONG).show()
-        }
-        else if(SocketClient.Notfail)
+
+        if(SocketClient.Notfail)
         {
             Toast.makeText(applicationContext,"已成功傳送車牌號碼,請至出口稍等",Toast.LENGTH_LONG).show()
         }
-        else
-        {
-            Toast.makeText(applicationContext,"連線失敗! 有可能是伺服器未開啟或者網路不穩,請重新嘗試!",Toast.LENGTH_LONG).show()
-        }
-            Thread{
-                SocketClient.sendCar(editText.text.toString())
-            }.start()
+        Thread{
+            SocketClient.sendCar(editText.text.toString())
+        }.start()
         }
     }
 
@@ -59,6 +68,7 @@ class SocketThread():Thread()
             val s= Socket("192.168.43.201",5005)
             val output=s.getOutputStream()
             writer= PrintWriter(output,true)
+            Notfail=true
         }
         catch(e:Exception)
         {
