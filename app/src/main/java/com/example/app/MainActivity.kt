@@ -34,7 +34,7 @@ class SocketThread():Thread()
 
     override fun run()
     {
-        val s= Socket("192.168.1.101",5005)
+        val s= Socket("192.168.43.201",5005)
         val output=s.getOutputStream()
         writer= PrintWriter(output,true)
     }
