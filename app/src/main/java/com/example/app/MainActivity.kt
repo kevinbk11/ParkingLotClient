@@ -13,7 +13,6 @@ import java.net.Socket
 
 class MainActivity : AppCompatActivity() {
     val SocketClient=SocketThread()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
