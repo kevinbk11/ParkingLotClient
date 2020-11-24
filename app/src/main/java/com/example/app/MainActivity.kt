@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     {
         if(SocketClient.Connecting)
         {
-            Toast.makeText(applicationContext,"伺服器尚未開啟或尚未連線",Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext,"尚未連線",Toast.LENGTH_LONG).show()
         }
         else if(SocketClient.Notfail)
         {
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         }
         else
         {
-            Toast.makeText(applicationContext,"連線失敗!請重新嘗試",Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext,"連線失敗! 有可能是伺服器未開啟或者網路不穩,請重新嘗試!",Toast.LENGTH_LONG).show()
         }
             Thread{
                 SocketClient.sendCar(editText.text.toString())
